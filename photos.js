@@ -1,7 +1,7 @@
 /*    
     Program Name:  Photo Gallery Application
-    Author: 
-    Date:   
+    Author: Mason Smith
+    Date:   July 6, 2016
     Filename: photos.js
  */
 
@@ -15,10 +15,14 @@ var figureCount = 3;
 /* This method adds src values to img elements based on order specified in photoOrder array             */
 /********************************************************************************************************/
 function populateFigures() {
+var filename;
+var currentFig; 
 
-
-
-
+for (var i = 1;  i < 4;  i++) {
+         filename = "images/IMG_0" + photoOrder[i] + "sm.jpg";
+         currentFig = document.getElementsByTagName("img")[i - 1];
+         currentFig.src = filename; 
+  }
 }//end of populateFigures function
 
 /**********************************END OF populateFigures() FUNCTION*************************************/
@@ -80,9 +84,19 @@ function previewFive() {
 /*         This method attaches event listeners to the buttons (left, right, and show all).            */
 /*******************************************************************************************************/
 function createEventListeners() {
+    //declare variable for document element with id of leftarrow, which is in the html document
+    var leftarrow = document.getElementById("leftarrow");
+
+    //add an event handler to the specified document element (leftarrow)
+    //the leftArrow() function will be executed when the user clicks the left navigation arrow button 
+    leftarrow.addEventListener("click", leftArrow, false);
    
-
-
+    //declare variable for document element with id of rightarrow in the html document
+    var rightarrow = document.getElementById("rightarrow");
+    
+    //add an event handler to the specified document element (rightarrow)
+    //the rightArrow() function will executed when user clicks the right navigation arrow  
+    rightarrow.addEventListener("click", rightArrow, false);
    
 }//end of createEventListeners function
 
