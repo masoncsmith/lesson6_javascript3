@@ -70,10 +70,25 @@ function leftArrow() {
 /*           This method is executed to allow the photo gallery to shift to five image layout.         */
 /******************************************************************************************************/
 function previewFive() {
+    var articleEl = document.getElementsByTagName("article")[0]
+    
+   // create figure and img elements for fifth image
+   var lastFigure = document.createElement("figure");
    
+   lastFigure.id="fig5";
+   lastFigure.style.zIndex="5";
+   lastFigure.style.position="absolute";
+   lastFigure.style.right= "45px";
+   lastFigure.style.top= "67px";
 
+   var lastImage  =document.createElement("img");
+   lastImage.width="240";
+   lastImage.height="135";
    
-   
+    //add or attach the fifth image to previewFive
+    lastFigure.appendChild(lastImage);
+    articleEl.appendChild(lastFigure); 
+    
 }//end of previewFive()
 
 /****************************************END of previewFive() Function**********************************/
@@ -97,6 +112,13 @@ function createEventListeners() {
     //add an event handler to the specified document element (rightarrow)
     //the rightArrow() function will executed when user clicks the right navigation arrow  
     rightarrow.addEventListener("click", rightArrow, false);
+    
+    //declare a variable for the element fiveButton
+    var showAllButton = document.querySelector("#fiveButton p");
+    
+    //add event listener to showAllButton element
+    //when the user clicks the Show More button the previewFive function is executed
+    showAllButton.addEventListener("click", previewFive, false);
    
 }//end of createEventListeners function
 
